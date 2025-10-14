@@ -4,34 +4,34 @@ package com.example.code;
  * City class that defines the city and province variables, along with the getter and setter methods
  * for each variable.
  */
-public class City {
-    private String city;
+public class City implements Comparable<City> {
+    private String name;
     private String province;
 
-    public City(String city, String province) {
-        this.city = city;
+    public City(String name, String province) {
+        this.name = name;
         this.province = province;
     }
 
-    public String getCityName() {
-        return this.city;
+    public String getName() {
+        return name;
     }
 
-    public void setCityName(String city) {
-        this.city = city;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getProvinceName() {
-        return this.province;
+    public String getProvince() {
+        return province;
     }
 
-    public void setProvinceName(String province) {
+    public void setProvince(String province) {
         this.province = province;
     }
 
-    public int compareTo(Object o) {
-        City city = (City) o;
-        return this.city.compareTo(city.getCityName()); // this.city refers to the city name
+    @Override
+    public int compareTo(City city) {
+        return this.name.compareTo(city.getName());
     }
 }
 
