@@ -24,8 +24,37 @@ public class CityList {
      * Return the sorted list
      */
     public List<City> getCities() {
-        List<City> list = cities;
+        List<City> list = new ArrayList<>(cities);
         Collections.sort(list);
         return list;
     }
+
+    /**
+     * Checks if the city exists in the list.
+     * @param city
+     * @return true if city is in the list
+     */
+    public boolean hasCity(City city) {
+        return cities.contains(city);
+    }
+
+    /**
+     * Deletes a city from the list if it exists, else throws an exception.
+     * @param city
+     */
+    public void deleteCity(City city) {
+        if (!cities.contains(city)) {
+            throw new IllegalArgumentException("City does not exist in the list.");
+        }
+        cities.remove(city);
+    }
+
+    /**
+     * Returns the number of cities in the list.
+     * @return Number of cities
+     */
+    public int countCities() {
+        return cities.size();
+    }
+
 }
